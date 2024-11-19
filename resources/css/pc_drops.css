@@ -1,0 +1,100 @@
+@keyframes fade{
+    from {background-color: blue;}
+    to {background-color: white;}
+}
+body{
+    background-color: rgb(37, 37, 37);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+/*----------------------------------------------------------------------*/
+
+.Latest-Drop{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Latest-Drop p{
+    color: red;
+    font-size: 1rem;
+    text-align: center;
+}
+.Latest-Drop button{
+    color: white;
+    background-color: blue;
+    padding: 10px 10%;
+    border: 20px white;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    margin: 1em;
+}
+
+#Drop-title{
+    text-align: center;
+    color: white;
+    font-size: 3rem;
+    width: 70%; 
+    background-color: blue;
+    border-radius: 10px;
+}
+
+.drop{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url(../images/blue_gradient.jpg);
+    background-size: cover;
+    border-radius: 10px;
+    border: white 0.5em solid;
+    width: 50%;
+    color: white;
+    font-size: 1.5rem;
+    margin: 0em;
+}
+.pc-drops-list{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.pc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url(../images/blue_gradient.jpg);
+    background-size: cover;
+    border-radius: 10px;
+    border: white 0.5em solid;
+    width: 30%;
+    height: auto;
+    color: white;
+    font-size: 1.5rem;
+    margin: 1em;
+}
+.pc ul{
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.pc button{
+    color: white;
+    background-color: blue;
+    padding: 10px 10%;
+    border: 20px white;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    margin: 1em;
+}
+
+.pc img{
+    width: 50%;
+    height: auto;
+    margin: 10px;
+}
+/*----------------------------------------------------------------------*/

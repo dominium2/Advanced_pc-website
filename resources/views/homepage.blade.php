@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
 </head>
 <body>
-    <?php include 'php_segments/navbar.php'; ?>
+    @extends('layouts.navbar')
 
     <div class="intro">
         <div class="intro-left">
@@ -82,7 +82,7 @@
         <a href="pc_drop.php">View all drops</a>
     </div>
 
-    <?php include 'php_segments/footer.php'; ?>
+    @extends('layouts.footer')
 
 
 </body>

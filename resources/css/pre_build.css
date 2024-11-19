@@ -1,0 +1,159 @@
+body{
+    background-color: rgb(37, 37, 37);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+/*----------------------------------------------------------------------*/
+.pre_build_genre ul {
+    list-style: none;
+    padding-left: 0;
+    background-color: rgb(0, 0, 120);
+    color: white;
+    width: 7rem;
+}
+
+.pre_build_genre li a {
+    text-decoration: none; 
+}
+
+.pre_build_genre li {
+    position: relative; 
+    width: 4rem; 
+    height: auto;
+    padding: 1.5em;
+    transition: transform 0.3s ease; 
+}
+
+.pre_build_genre li:hover {
+    transform: scale(1.05); 
+}
+
+.game-list-sidebar {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0; 
+    width: auto;
+    background-color: rgb(0, 0, 120);
+    color: black;
+    
+}
+
+.game-list-sidebar.stay-visible {
+    display: block; 
+}
+
+.pre_build_genre li:hover .game-list-sidebar {
+    display: block;
+    
+}
+
+.selected-game {
+    background-color: white;
+    color: black; 
+}
+
+.game-image-display img {
+    width: auto; 
+    height: 90%;
+    border-radius: 10px;
+}
+
+.game-image-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: auto; 
+    width: 30%; 
+    margin: 2em auto;
+    border-radius: 10px;
+    padding: 2em;
+    color: white;
+}
+
+
+.pre_build_select{
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 2px solid grey;
+    
+}
+
+/*----------------------------------------------------------------------*/
+.Pc-list{
+    display: flex;
+    justify-content: center;
+}
+
+.call-of-duty-performance, .apex-legends-performance, .destiny-performance, .elden-ring-performance, .warframe-performance, .witcher-performance, .fc-24-performance, .nba-2k-performance{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.Pc-option{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+}
+
+.Pc-option img{
+    width: 10rem;
+    height: auto;
+}
+
+#line{
+    width: 15%;
+    height: 1px;
+    background-color: white;
+}
+
+.team-green{
+    background-image: url(../images/dark-green-gradient.png);
+    background-size: cover;
+    border-radius: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 22rem;
+    height: 22rem;
+    color: white;
+}
+.team-green img{
+    width: 10rem;
+    height: auto;
+}
+
+.avg-fps-amount{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8rem;
+    width: 8rem;
+    border: 5px solid white;
+    border-radius: 100%;
+    color: white;
+}
+
+.team-red{
+    background-image: url(../images/red_gradient.jpg);
+    background-size: cover;
+    border-radius: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 22rem;
+    height: 22rem;
+    color: white;
+}
+.team-red img{
+    width: 10rem;
+    height: auto;
+}

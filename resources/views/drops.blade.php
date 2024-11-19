@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/pc_builder.css">
 </head>
 <body>
-    <?php include 'php_segments/navbar.php'; ?>
+    @extends('layouts.navbar')
 
     <div class="pc-builder">
         <div class="pc-builder-header">
@@ -114,7 +114,7 @@
                 <button type="submit">Build PC</button>
             </form>
         </div>
-        <?php include 'php_segments/footer.php'; ?>
+        @extends('layouts.footer')
 
         <script>
             function updateMotherboardOptions(cpuSelect) {

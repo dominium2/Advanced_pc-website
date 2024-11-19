@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="css/pre_build.css">
     </head>
     <body>
-        <?php include 'php_segments/navbar.php'; ?>
+        @extends('layouts.navbar')
 
 
         <div class="pre_build_select">
@@ -720,7 +720,7 @@
 
 
 
-        <?php include 'php_segments/footer.php'; ?>
+        @extends('layouts.footer')
     </body>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
