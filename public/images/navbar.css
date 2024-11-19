@@ -1,0 +1,28 @@
+.navbar{
+    display: flex;
+    list-style: none;
+    background-color: blue;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    justify-content: center;
+}
+.navbar li{
+    margin: 1rem;
+    color: black;
+    align-content: space-between; 
+}
+.navbar a{
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    transition: background-color 0.5s;
+}
+.navbar a:hover{
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    animation: fade 0.3s;
+}

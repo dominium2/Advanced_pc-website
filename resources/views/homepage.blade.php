@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
 </head>
 <body>
-    @extends('layouts.navbar')
+
+    @include('layouts.navbar')
 
     <div class="intro">
         <div class="intro-left">
@@ -82,7 +83,7 @@
         <a href="pc_drop.php">View all drops</a>
     </div>
 
-    @extends('layouts.footer')
+    @include('layouts.footer')
 
 
 </body>

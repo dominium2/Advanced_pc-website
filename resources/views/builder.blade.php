@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/pc_builder.css">
 </head>
 <body>
-    @extends('layouts.navbar')
+    @include('layouts.navbar')
 
     <div class="pc-builder">
         <div class="pc-builder-header">
@@ -114,7 +114,7 @@
                 <button type="submit">Build PC</button>
             </form>
         </div>
-        @extends('layouts.footer')
+        @include('layouts.footer')
 
         <script>
             function updateMotherboardOptions(cpuSelect) {

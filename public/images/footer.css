@@ -1,0 +1,91 @@
+.footer{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(21, 21, 57);
+    color: white;
+    padding: 10px;
+    padding-bottom: 50px;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+/*----------------------------------------------------------------------*/
+.footer-left{
+    width: 20%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.footer-left img{
+    width: 40%;
+    height: auto;
+    margin: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-left ul{
+    display: flex;
+    justify-content: center;
+    padding: 0%;
+    margin-left: 0%;
+    width: 100%;
+}
+/*----------------------------------------------------------------------*/
+.footer-middle{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    color: aliceblue;
+    margin-left: 6rem;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+}
+.footer-middle a{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    color: white;
+    align-content: space-between;
+    list-style: none;
+    text-decoration: none;
+}
+.footer-middle a:hover{
+    color: rgb(80, 80, 255);
+}
+/*----------------------------------------------------------------------*/
+.footer-right{
+    color: aliceblue;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 100px;
+}
+.footer-right h3{
+    margin-top: 5px;
+}
+.footer-right input{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid white;
+}
+.footer-right button{
+    color: white;
+    background-color: rgb(80, 80, 255);
+    padding: 10px 10%;
+    border: 20px white;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: large;
+}
+.footer-right button:hover{
+    background-color: white;
+    color: black;
+    padding: 10px 10%;
+    border-radius: 10px;
+
+}

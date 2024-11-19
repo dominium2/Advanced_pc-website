@@ -11,19 +11,19 @@
         <div class="navbar">
             <ul class="navbar">
                 <li>
-                    <a href="Index.php">Home</a>
+                    <a href="{{ route('homepage')}}">Home</a>
                 </li>
                 <li>
-                    <a href="pre_build.php">Pre-build</a>
+                    <a href="{{ route('build')}}">Pre-build</a>
                 </li>
                 <li>
-                    <a href="pc_builder.php">Custom build</a>
+                    <a href="{{ route('builder')}}">Custom build</a>
                 </li>
                 <li>
-                    <a href="pc_drop.php">Pc drops</a>
+                    <a href="{{ route('drops')}}">Pc drops</a>
                 </li>
                 <li>
-                    <a href="help.php">Help</a>
+                    <a href="{{ route('help')}}">Help</a>
                 </li>
             </ul>
         </div>
