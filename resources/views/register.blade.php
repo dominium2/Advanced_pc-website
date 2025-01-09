@@ -10,12 +10,13 @@
 <body>
     <div class="register-box">
         <h2>Register</h2>
-        <form>
+        <form action="{{ route('register') }}" method="POST">
+            @csrf
             <div class="input-field">
-                <label for="firstname">Firstame:</label>
+                <label for="firstname">Firstname:</label>
                 <input type="text" id="firstname" name="firstname" class="form-control" required>
             </div>
-            <diV class="input-field">
+            <div class="input-field">
                 <label for="lastname">Lastname:</label>
                 <input type="text" id="lastname" name="lastname" class="form-control" required>
             </div>
@@ -26,6 +27,7 @@
             <div class="input-field">
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" class="form-control" required>
+                <p>Password must be at least 8 characters long</p>
             </div>
             <div class="input-field">
                 <label for="password_confirmation">Confirm Password:</label>
@@ -33,6 +35,15 @@
             </div>
             <button type="submit" class="register-btn">Register</button>
         </form>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <p id="error-message">{{ $error }}</p>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     </div>
 </body>
 </html>
