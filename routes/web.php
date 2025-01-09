@@ -21,3 +21,11 @@ Route::get('/drops', function () {
 Route::get('/help', function () {
     return view('help');
 })->name('help');
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+
+Route::get('/register',function () {
+    return view('register');
+})->name('register');

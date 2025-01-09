@@ -26,6 +26,9 @@
                     <a href="{{ route('help')}}">Help</a>
                 </li>
             </ul>
+            <a id="profile-button" href="{{route('login')}}">
+                <img src="{{ asset('images/profile-round-1342-svgrepo-com.svg') }}" alt="logo" width="100px" height="auto">
+            </a>
         </div>
     </nav>
 </body>
