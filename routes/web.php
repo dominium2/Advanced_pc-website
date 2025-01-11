@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
     return view('homepage');
@@ -19,6 +20,8 @@ Route::get('/builder', function () {
 Route::get('/drops', function () {
     return view('drops');
 })->name('drops');
+
+Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 
 Route::get('/help', function () {
     return view('help');
