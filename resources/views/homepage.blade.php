@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    @include('layouts.navbar')
+    @include('components.navbar')
 
     <div class="intro">
         <div class="intro-left">
@@ -83,7 +83,7 @@
         <a href="pc_drop.php">View all drops</a>
     </div>
 
-    @include('layouts.footer')
+    @include('components.footer')
 
 
 </body>

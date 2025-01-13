@@ -21,6 +21,10 @@ Route::get('/drops', function () {
     return view('drops');
 })->name('drops');
 
+Route::get('/profile', function () {
+    return view('profile');
+})->name('profile');
+
 Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 
 Route::get('/help', function () {

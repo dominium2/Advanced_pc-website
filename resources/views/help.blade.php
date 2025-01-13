@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/help.css">
 </head>
 <body>
-    @include('layouts.navbar')
+    @include('components.navbar')
 
     <div class="contact-area" id="contact-area">
         <h1>Contact us</h1>
@@ -38,7 +38,7 @@
             <p class="answer">A: Our return policy can be found <a href="#">here</a>.</p>
         </div>
     </div>
-    @include('layouts.footer')
+    @include('components.footer')
 
     <script>
         function toggleAnswer(element) {
