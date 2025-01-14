@@ -19,6 +19,7 @@ class RegisterController extends Controller
             'firstname' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
+            'phone' => 'nullable|string|max:255',
             'password' => 'required|min:8|confirmed',
         ], [
             'password.min' => 'Password must be at least 8 characters long',
@@ -35,6 +36,7 @@ class RegisterController extends Controller
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
             'email' => $request->email,
+            'phone' => $request->phone,
             'password' => Hash::make($request->password),
         ]);
 

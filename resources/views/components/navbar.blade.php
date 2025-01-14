@@ -26,9 +26,29 @@
                     <a href="{{ route('help')}}">Help</a>
                 </li>
             </ul>
-            <a id="profile-button" href="{{route('login')}}">
-                <img src="{{ asset('images/profile-round-1342-svgrepo-com.svg') }}" alt="logo" width="100px" height="auto">
-            </a>
+            @if(Auth::check())
+                <div class="dropdown">
+                    <a id="profile-button" href="#">
+                        <img src="{{ asset('images/profile-round-1342-svgrepo-com.svg') }}" alt="logo" width="100px" height="auto">
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="{{ route('profile') }}">Profile</a>
+                        <a href="#">Orders</a>
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                           document.getElementById('logout-form').submit();">
+                           Logout
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </div>
+            @else
+                <a id="profile-button" href="{{ route('login') }}">
+                    <img src="{{ asset('images/profile-round-1342-svgrepo-com.svg') }}" alt="logo" width="100px" height="auto">
+                </a>
+            @endif
         </div>
     </nav>
 </body>
