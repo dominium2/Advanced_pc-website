@@ -1,4 +1,3 @@
-<!-- filepath: /Ubuntu/var/www/html/Pc-website/laravel/Pc-website/resources/views/profile.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
