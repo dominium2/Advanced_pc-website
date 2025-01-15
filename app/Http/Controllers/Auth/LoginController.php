@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
@@ -24,11 +23,22 @@ class LoginController extends Controller
 
         // Attempt to log the user in
         if (Auth::attempt($request->only('email', 'password'))) {
-            // Authentication passed, redirect to the homepage
-            return redirect()->route('homepage');
+            // Authentication passed, check if the user is an admin
+            if (Auth::user()->isAdmin) {
+                return redirect()->route('admin.dashboard');
+            }
+
+            // Redirect to the intended page or home if not an admin
+            return redirect()->intended('/');
         }
 
         // Authentication failed, redirect back with an error message
         return redirect()->back()->withErrors(['email' => 'Invalid credentials'])->withInput();
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        return redirect('/');
     }
 }
