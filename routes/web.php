@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ContactController;
 
 /*--------------------------static page logic---------------------------------------*/
 
@@ -51,6 +52,14 @@ Route::post('/logout', function () {
     return redirect('/');
 })->name('logout');
 
+/*--------------------------contact logic---------------------------------------*/
+
+Route::get('/contact', function () {
+    return view('help');
+})->name('contact.page');
+
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+
 /*--------------------------faq logic---------------------------------------*/
 use App\Http\Controllers\FaqController;
 
@@ -70,4 +79,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/admin/faq/question/{question}', [FaqController::class, 'updateQuestion'])->name('faq.updateQuestion');
     Route::delete('/admin/faq/category/{category}', [FaqController::class, 'destroyCategory'])->name('faq.destroyCategory');
     Route::delete('/admin/faq/question/{question}', [FaqController::class, 'destroyQuestion'])->name('faq.destroyQuestion');
+    Route::get('/admin/messages', [AdminController::class, 'viewMessages'])->name('admin.messages');
+    Route::delete('/admin/messages/{message}', [AdminController::class, 'deleteMessage'])->name('admin.deleteMessage');
 });

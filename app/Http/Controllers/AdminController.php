@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use App\Models\User;
+use App\Models\Contact;
 
 class AdminController extends Controller
 {
@@ -61,5 +62,19 @@ class AdminController extends Controller
         Log::info('AdminController: Deleting user.');
         $user->delete();
         return redirect()->back()->with('success', 'User deleted successfully.');
+    }
+
+    public function viewMessages()
+    {
+        $messages = Contact::all();
+        return view('admin.mails', compact('messages'));
+    }
+
+    public function deleteMessage($id)
+    {
+        $message = Contact::findOrFail($id);
+        $message->delete();
+
+        return redirect()->route('admin.messages')->with('success', 'Message deleted successfully!');
     }
 }

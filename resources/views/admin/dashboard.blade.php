@@ -21,6 +21,7 @@
                 <div class="admin-links">
                     <a href="{{ route('admin.users') }}" class="btn btn-primary">Manage Users</a>
                     <a href="{{ route('faq.admin') }}" class="btn btn-primary">Manage FAQ</a>
+                    <a href="{{ route('admin.messages') }}" class="btn btn-primary">Manage Messages</a>
                     <a href="" class="btn btn-primary">Manage Inventory</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
                         @csrf
