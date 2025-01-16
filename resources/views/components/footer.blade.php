@@ -20,8 +20,8 @@
         </div>
         <div class="footer-middle">
             <ul>
-                <a href="help.php#contact-area">contact us</a>
-                <a href="help.php#faq-area">faq</a>
+                <a href="{{ route('contact.page')}}">contact us</a>
+                <a href="{{ route('faq.index')}}">faq</a>
                 <a>guide</a>
             </ul>
         </div>
