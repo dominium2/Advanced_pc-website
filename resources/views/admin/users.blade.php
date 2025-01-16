@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="{{ asset('css/admin/users.css') }}">
 </head>
 <body>
+    <div>
+        <a href="{{ route('admin.dashboard') }}">Back to Dashboard</a>
+    </div>
+
     <div class="container">
         <h1>Manage Users</h1>
         @if(session('success'))

@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="{{ asset('css/admin/faq-admin.css') }}">
 </head>
 <body>
+    <div>
+        <a href="{{ route('admin.dashboard') }}">Back to Dashboard</a>
+    </div>
+
     <h1>Manage FAQ</h1>
 
     <h2>Add Category</h2>
