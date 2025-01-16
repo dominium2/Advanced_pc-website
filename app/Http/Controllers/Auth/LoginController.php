@@ -24,7 +24,7 @@ class LoginController extends Controller
         // Attempt to log the user in
         if (Auth::attempt($request->only('email', 'password'))) {
             // Authentication passed, check if the user is an admin
-            if (Auth::user()->isAdmin) {
+            if (Auth::user()->is_admin) {
                 return redirect()->route('admin.dashboard');
             }
 

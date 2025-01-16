@@ -72,7 +72,7 @@ Route::delete('/admin/faq/question/{question}', [FaqController::class, 'destroyQ
 
 /*--------------------------admin logic---------------------------------------*/
 
-Route::middleware(['auth', 'admin'])->group(function () {
+Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/users', [AdminController::class, 'manageUsers'])->name('admin.users');
     Route::put('/admin/users/{user}', [AdminController::class, 'updateUser'])->name('admin.updateUser');
