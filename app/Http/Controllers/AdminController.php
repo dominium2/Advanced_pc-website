@@ -11,7 +11,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-        if (!Auth::user()->is_admin) {
+        if (!Auth::check() || !Auth::user()->is_admin) {
             return redirect('/')->with('error', 'You do not have access to this page.');
         }
 
@@ -20,7 +20,7 @@ class AdminController extends Controller
 
     public function manageUsers()
     {
-        if (!Auth::user()->is_admin) {
+        if (!Auth::check() || !Auth::user()->is_admin) {
             return redirect('/')->with('error', 'You do not have access to this page.');
         }
 
@@ -30,24 +30,31 @@ class AdminController extends Controller
 
     public function updateUser(Request $request, User $user)
     {
-        if (!Auth::user()->is_admin) {
+        if (!Auth::check() || !Auth::user()->is_admin) {
             return redirect('/')->with('error', 'You do not have access to this page.');
         }
 
-        Log::info('AdminController: Updating user.');
+        Log::info('AdminController: Updating user.', $request->all());
         $request->validate([
-            'name' => 'required|string|max:255',
+            'firstname' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
             'is_admin' => 'required|boolean',
         ]);
 
-        $user->update($request->all());
+        $user->update([
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'email' => $request->email,
+            'is_admin' => $request->is_admin,
+        ]);
+
         return redirect()->back()->with('success', 'User updated successfully.');
     }
 
     public function deleteUser(User $user)
     {
-        if (!Auth::user()->is_admin) {
+        if (!Auth::check() || !Auth::user()->is_admin) {
             return redirect('/')->with('error', 'You do not have access to this page.');
         }
 

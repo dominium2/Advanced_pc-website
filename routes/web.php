@@ -56,20 +56,6 @@ use App\Http\Controllers\FaqController;
 
 Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
 
-Route::get('/admin/faq', [FaqController::class, 'adminIndex'])->name('faq.admin');
-
-Route::post('/admin/faq/category', [FaqController::class, 'storeCategory'])->name('faq.storeCategory');
-
-Route::post('/admin/faq/question', [FaqController::class, 'storeQuestion'])->name('faq.storeQuestion');
-
-Route::put('/admin/faq/category/{category}', [FaqController::class, 'updateCategory'])->name('faq.updateCategory');
-
-Route::put('/admin/faq/question/{question}', [FaqController::class, 'updateQuestion'])->name('faq.updateQuestion');
-
-Route::delete('/admin/faq/category/{category}', [FaqController::class, 'destroyCategory'])->name('faq.destroyCategory');
-
-Route::delete('/admin/faq/question/{question}', [FaqController::class, 'destroyQuestion'])->name('faq.destroyQuestion');
-
 /*--------------------------admin logic---------------------------------------*/
 
 Route::group(['middleware' => ['auth']], function () {
@@ -77,4 +63,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/users', [AdminController::class, 'manageUsers'])->name('admin.users');
     Route::put('/admin/users/{user}', [AdminController::class, 'updateUser'])->name('admin.updateUser');
     Route::delete('/admin/users/{user}', [AdminController::class, 'deleteUser'])->name('admin.deleteUser');
+    Route::get('/admin/faq', [FaqController::class, 'adminIndex'])->name('faq.admin');
+    Route::post('/admin/faq/category', [FaqController::class, 'storeCategory'])->name('faq.storeCategory');
+    Route::post('/admin/faq/question', [FaqController::class, 'storeQuestion'])->name('faq.storeQuestion');
+    Route::put('/admin/faq/category/{category}', [FaqController::class, 'updateCategory'])->name('faq.updateCategory');
+    Route::put('/admin/faq/question/{question}', [FaqController::class, 'updateQuestion'])->name('faq.updateQuestion');
+    Route::delete('/admin/faq/category/{category}', [FaqController::class, 'destroyCategory'])->name('faq.destroyCategory');
+    Route::delete('/admin/faq/question/{question}', [FaqController::class, 'destroyQuestion'])->name('faq.destroyQuestion');
 });

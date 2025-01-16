@@ -83,14 +83,14 @@ form input, form select, form textarea, form button {
 }
 
 form button {
-    background-color: #28a745;
+    background-color: #1e88e5;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 form button:hover {
-    background-color: #218838;
+    background-color: #1565c0;
 }
 
 /* Alert styles */
@@ -104,4 +104,52 @@ form button:hover {
 
 .alert-success {
     background-color: #388e3c;
+}
+
+/* User management styles */
+.user-management table {
+    margin-top: 20px;
+}
+
+.user-management table th, .user-management table td {
+    padding: 10px;
+    text-align: left;
+}
+
+.user-management table th {
+    background-color: #1e88e5;
+    color: white;
+}
+
+.user-management table tr:nth-child(even) {
+    background-color: #2c2c2c;
+}
+
+.user-management table tr:hover {
+    background-color: #3a3a3a;
+}
+
+.user-management form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.user-management form input, .user-management form select, .user-management form button {
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+}
+
+.user-management form button {
+    background-color: #1e88e5;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.user-management form button:hover {
+    background-color: #1565c0;
 }

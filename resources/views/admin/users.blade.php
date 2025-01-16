@@ -4,15 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Users</title>
-    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin/users.css') }}">
 </head>
 <body>
     <div class="container">
         <h1>Manage Users</h1>
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+        @if(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
         <table>
             <thead>
                 <tr>
-                    <th>Name</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
                     <th>Email</th>
                     <th>Admin</th>
                     <th>Actions</th>
@@ -21,18 +32,20 @@
             <tbody>
                 @foreach ($users as $user)
                     <tr>
-                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->firstname }}</td>
+                        <td>{{ $user->lastname }}</td>
                         <td>{{ $user->email }}</td>
-                        <td>{{ $user->isAdmin ? 'Yes' : 'No' }}</td>
+                        <td>{{ $user->is_admin ? 'Yes' : 'No' }}</td>
                         <td>
                             <form action="{{ route('admin.updateUser', $user) }}" method="POST">
                                 @csrf
                                 @method('PUT')
-                                <input type="text" name="name" value="{{ $user->name }}" required>
+                                <input type="text" name="firstname" value="{{ $user->firstname }}" required>
+                                <input type="text" name="lastname" value="{{ $user->lastname }}" required>
                                 <input type="email" name="email" value="{{ $user->email }}" required>
-                                <select name="isAdmin" required>
-                                    <option value="1" {{ $user->isAdmin ? 'selected' : '' }}>Yes</option>
-                                    <option value="0" {{ !$user->isAdmin ? 'selected' : '' }}>No</option>
+                                <select name="is_admin" required>
+                                    <option value="1" {{ $user->is_admin ? 'selected' : '' }}>Yes</option>
+                                    <option value="0" {{ !$user->is_admin ? 'selected' : '' }}>No</option>
                                 </select>
                                 <button type="submit">Update</button>
                             </form>
