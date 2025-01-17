@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ asset('css/admin/users.css') }}">
 </head>
 <body>
-    @include('admin.admin-layouts.admin-layout')
+    @extends('admin.admin-layouts.admin-layout')
 
     @section('content')
     <div class="container">
