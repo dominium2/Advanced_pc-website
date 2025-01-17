@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $news = News::all();
+        $news = News::with('image')->get();
         return view('homepage', compact('news'));
     }
 }

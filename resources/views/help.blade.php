@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="{{ asset('css/help.css') }}">
 </head>
 <body>
-    @include('components.navbar')
+    @extends('layouts.user-layout')
 
+    @section('content')
     <div class="contact-area" id="contact-area">
         <h1>Contact us</h1>
         <p>If you have any questions or need help with anything, please contact us.</p>
@@ -20,7 +21,7 @@
             <button type="submit">Send</button>
         </form>
     </div>
+    @endsection
 
-    @include('components.footer')
 </body>
 </html>

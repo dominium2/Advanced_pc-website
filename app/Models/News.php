@@ -9,11 +9,15 @@ class News extends Model
     protected $fillable = [
         'title',
         'content',
-        'image',
         'published_at',
     ];
 
     protected $casts = [
         'published_at' => 'datetime',
     ];
+
+    public function image()
+    {
+        return $this->hasOne(NewsImage::class);
+    }
 }

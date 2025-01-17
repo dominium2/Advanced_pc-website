@@ -70,6 +70,7 @@ Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/users', [AdminController::class, 'manageUsers'])->name('admin.users');
+    Route::post('/admin/users', [AdminController::class, 'createUser'])->name('admin.createUser');
     Route::put('/admin/users/{user}', [AdminController::class, 'updateUser'])->name('admin.updateUser');
     Route::delete('/admin/users/{user}', [AdminController::class, 'deleteUser'])->name('admin.deleteUser');
     Route::get('/admin/faq', [FaqController::class, 'adminIndex'])->name('faq.admin');
@@ -81,4 +82,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('/admin/faq/question/{question}', [FaqController::class, 'destroyQuestion'])->name('faq.destroyQuestion');
     Route::get('/admin/messages', [AdminController::class, 'viewMessages'])->name('admin.messages');
     Route::delete('/admin/messages/{message}', [AdminController::class, 'deleteMessage'])->name('admin.deleteMessage');
+    Route::get('/admin/news/create', [AdminController::class, 'createNews'])->name('admin.news.create');
+    Route::post('/admin/news', [AdminController::class, 'storeNews'])->name('admin.news.store');
 });

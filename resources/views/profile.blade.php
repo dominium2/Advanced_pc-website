@@ -8,14 +8,19 @@
     <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
 </head>
 <body>
+    @include('components.navbar')
     <div class="profile-container">
         <h1>Profile Information</h1>
-        <form action="{{ route('profile.update') }}" method="POST">
+        <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
             <div class="account-info">
                 <h2>Account Information</h2>
+                <div class="input-field">
+                    <label for="profile-image">Profile Picture:</label>
+                    <input type="file" id="profile-image" name="profile_image" accept="image/*">
+                </div>
                 <div class="input-field">
                     <label for="firstname">FirstName:</label>
                     <input type="text" id="firstname" name="firstname" value="{{ old('firstname', $user->firstname) }}" placeholder="{{ $user->firstname }}" required>
@@ -57,5 +62,6 @@
             <button type="submit" class="update-btn">Update Profile</button>
         </form>
     </div>
+    @include('components.footer')
 </body>
 </html>
