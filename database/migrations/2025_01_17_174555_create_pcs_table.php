@@ -16,7 +16,6 @@ class CreatePcsTable extends Migration
         Schema::create('pcs', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('image');
             $table->decimal('price', 8, 2);
             $table->text('components'); // Store components as text
             $table->timestamps();

@@ -22,7 +22,7 @@
                 </div>
                 <div class="input-field">
                     <label for="image">Image:</label>
-                    <input type="file" id="image" name="image" accept="image/*" required>
+                    <input type="file" id="image" name="image" accept="image/*">
                 </div>
                 <div class="input-field">
                     <label for="price">Price:</label>

@@ -16,7 +16,7 @@ class CreatePcImagesTable extends Migration
         Schema::create('pc_images', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pc_id')->constrained()->onDelete('cascade');
-            $table->string('image_path');
+            $table->string('image_path')->default('images/CS_NZXTH6RGB_400.webp');
             $table->timestamps();
         });
     }
