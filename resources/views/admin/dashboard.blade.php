@@ -23,7 +23,7 @@
                     <a href="{{ route('faq.admin') }}" class="btn btn-primary">Manage FAQ</a>
                     <a href="{{ route('admin.messages') }}" class="btn btn-primary">Manage Messages</a>
                     <a href="{{ route('admin.news.create') }}" class="btn btn-primary">Create News Post</a>
-                    <a href="" class="btn btn-primary">Manage Inventory</a>
+                    <a href="{{ route('admin.pcs.create')}}" class="btn btn-primary">Manage Inventory</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
                         @csrf
                         <button type="submit" class="btn btn-primary">Logout</button>

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PcController;
 
 /*--------------------------static page logic---------------------------------------*/
 
@@ -84,4 +85,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('/admin/messages/{message}', [AdminController::class, 'deleteMessage'])->name('admin.deleteMessage');
     Route::get('/admin/news/create', [AdminController::class, 'createNews'])->name('admin.news.create');
     Route::post('/admin/news', [AdminController::class, 'storeNews'])->name('admin.news.store');
+    Route::get('/admin/pcs/create', [PcController::class, 'create'])->name('admin.pcs.create');
+    Route::post('/admin/pcs', [PcController::class, 'store'])->name('admin.pcs.store');
 });
