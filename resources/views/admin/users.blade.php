@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="{{ asset('css/admin/users.css') }}">
 </head>
 <body>
-    <nav class="admin-nav">
-        <a href="{{ route('admin.dashboard') }}">Dashboard</a>
-    </nav>
+    @include('admin.admin-layouts.admin-layout')
+
+    @section('content')
     <div class="container">
         <h1>Manage Users</h1>
         <table>
@@ -67,5 +67,6 @@
             <button type="submit">Add User</button>
         </form>
     </div>
+    @endsection
 </body>
 </html>

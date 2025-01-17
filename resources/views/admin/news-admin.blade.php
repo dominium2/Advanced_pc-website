@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="{{ asset('css/admin/news-admin.css') }}">
 </head>
 <body>
+    @extends('admin.admin-layouts.admin-layout')
+
+    @section('content')
     <div class="container">
         <h1>Create News Post</h1>
         <form action="{{ route('admin.news.store') }}" method="POST" enctype="multipart/form-data">
@@ -30,5 +33,6 @@
             <button type="submit">Create Post</button>
         </form>
     </div>
+    @endsection
 </body>
 </html>

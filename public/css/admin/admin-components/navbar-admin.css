@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.admin-navbar {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.admin-navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.admin-navbar ul li {
+    float: left;
+}
+
+.admin-navbar ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.admin-navbar ul li a:hover {
+    background-color: #575757;
+}
+
+.admin-navbar ul li form {
+    display: inline;
+}

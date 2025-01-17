@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="{{ asset('css/admin/mails.css') }}">
 </head>
 <body>
-    <nav>
-        <a href="{{ route('admin.dashboard') }}">Back to Dashboard</a>
-    </nav>
-    <div class="container">
+    @extends('admin.admin-layouts.admin-layout')
+
+    @section('content')
+        <div class="container">
         <h1>Contact Messages</h1>
         <table class="table">
             <thead>
@@ -42,5 +42,6 @@
             </tbody>
         </table>
     </div>
+    @endsection
 </body>
 </html>

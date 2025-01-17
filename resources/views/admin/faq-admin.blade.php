@@ -1,4 +1,3 @@
-<!-- filepath: /Ubuntu/var/www/html/Pc-website/laravel/Pc-website/resources/views/faq/admin.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,10 +7,10 @@
     <link rel="stylesheet" href="{{ asset('css/admin/faq-admin.css') }}">
 </head>
 <body>
-    <div>
-        <a href="{{ route('admin.dashboard') }}">Back to Dashboard</a>
-    </div>
+    @extends('admin.admin-layouts.admin-layout')
 
+
+    @section('content')
     <h1>Manage FAQ</h1>
 
     <h2>Add Category</h2>
@@ -73,5 +72,6 @@
             </form>
         @endforeach
     @endforeach
+    @endsection
 </body>
 </html>

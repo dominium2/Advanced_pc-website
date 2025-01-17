@@ -7,8 +7,9 @@
         <link rel="stylesheet" href="css/pre_build.css">
     </head>
     <body>
-        @include('components.navbar')
-
+        @extends('layouts.user-layout')
+        @section('title', 'Pre-build')
+        @section('content')
 
         <div class="pre_build_select">
             <div class="pre_build_genre">
@@ -720,7 +721,7 @@
 
 
 
-        @include('components.footer')
+        @endsection
     </body>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
