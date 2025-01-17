@@ -77,16 +77,7 @@
         </div>
     </div>
 
-    <div class="news-post">
-        @foreach ($news as $newsItem)
-            <div class="news-item">
-                <p>{{ $newsItem->published_at->format('F j, Y') }}</p>
-                <h3>{{ $newsItem->title }}</h3>
-                <p>{{ $newsItem->content }}</p>
-                <img src="{{ $newsItem->image }}">
-            </div>
-        @endforeach
-    </div>
+    @include('components.news')
 
     <div class="pc-drop">
         <h1>PC DROPS</h1>

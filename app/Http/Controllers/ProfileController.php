@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Image;
 
 class ProfileController extends Controller
 {
@@ -23,9 +24,16 @@ class ProfileController extends Controller
 
         if ($request->hasFile('profile_image')) {
             $image = $request->file('profile_image');
-            $imageName = time().'.'.$image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
-            $user->profile_image = 'images/'.$imageName;
+            $imageData = file_get_contents($image->getRealPath());
+
+            if ($user->image) {
+                $user->image->update(['image_data' => $imageData]);
+            } else {
+                Image::create([
+                    'user_id' => $user->id,
+                    'image_data' => $imageData,
+                ]);
+            }
         }
 
         $user->update($request->only('firstname', 'lastname', 'phone', 'email', 'delivery_address', 'billing_address'));

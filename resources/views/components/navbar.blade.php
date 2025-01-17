@@ -29,7 +29,11 @@
             @if(Auth::check())
                 <div class="dropdown">
                     <a id="profile-button" href="#">
-                        <img src="{{ Auth::user()->profile_image ? asset(Auth::user()->profile_image) : asset('images/profile-round-1342-svgrepo-com.svg') }}" alt="Profile Picture" width="100px" height="auto">
+                        @if(Auth::user()->image)
+                            <img src="data:image/jpeg;base64,{{ base64_encode(Auth::user()->image->image_data) }}" alt="Profile Picture" width="100px" height="auto">
+                        @else
+                            <img src="{{ asset('images/profile-round-1342-svgrepo-com.svg') }}" alt="Profile Picture" width="100px" height="auto">
+                        @endif
                     </a>
                     <div class="dropdown-content">
                         <a href="{{ route('profile') }}">Profile</a>

@@ -82,4 +82,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('/admin/faq/question/{question}', [FaqController::class, 'destroyQuestion'])->name('faq.destroyQuestion');
     Route::get('/admin/messages', [AdminController::class, 'viewMessages'])->name('admin.messages');
     Route::delete('/admin/messages/{message}', [AdminController::class, 'deleteMessage'])->name('admin.deleteMessage');
+    Route::get('/admin/news/create', [AdminController::class, 'createNews'])->name('admin.news.create');
+    Route::post('/admin/news', [AdminController::class, 'storeNews'])->name('admin.news.store');
 });

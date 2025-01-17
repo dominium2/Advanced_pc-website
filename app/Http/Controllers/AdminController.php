@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use App\Models\User;
 use App\Models\Contact;
+use App\Models\News;
+use App\Models\NewsImage;
 
 class AdminController extends Controller
 {
@@ -102,5 +104,46 @@ class AdminController extends Controller
         $message->delete();
 
         return redirect()->route('admin.messages')->with('success', 'Message deleted successfully!');
+    }
+
+    public function createNews()
+    {
+        if (!Auth::check() || !Auth::user()->is_admin) {
+            return redirect('/')->with('error', 'You do not have access to this page.');
+        }
+
+        return view('admin.news-admin');
+    }
+
+    public function storeNews(Request $request)
+    {
+        if (!Auth::check() || !Auth::user()->is_admin) {
+            return redirect('/')->with('error', 'You do not have access to this page.');
+        }
+
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'published_at' => 'required|date',
+        ]);
+
+        $news = new News();
+        $news->title = $request->title;
+        $news->content = $request->content;
+        $news->published_at = $request->published_at;
+        $news->save();
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageData = file_get_contents($image->getRealPath());
+
+            NewsImage::create([
+                'news_id' => $news->id,
+                'image_data' => $imageData,
+            ]);
+        }
+
+        return redirect()->route('admin.dashboard')->with('success', 'News post created successfully.');
     }
 }
