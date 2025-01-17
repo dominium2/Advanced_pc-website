@@ -16,9 +16,18 @@ class ProfileController extends Controller
             'email' => 'required|string|email|max:255',
             'delivery_address' => 'nullable|string|max:255',
             'billing_address' => 'nullable|string|max:255',
+            'profile_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $user = Auth::user();
+
+        if ($request->hasFile('profile_image')) {
+            $image = $request->file('profile_image');
+            $imageName = time().'.'.$image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
+            $user->profile_image = 'images/'.$imageName;
+        }
+
         $user->update($request->only('firstname', 'lastname', 'phone', 'email', 'delivery_address', 'billing_address'));
 
         return redirect()->back()->with('success', 'Profile updated successfully.');

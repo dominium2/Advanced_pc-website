@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use App\Models\User;
 use App\Models\Contact;
@@ -29,6 +30,31 @@ class AdminController extends Controller
         return view('admin.users', compact('users'));
     }
 
+    public function createUser(Request $request)
+    {
+        if (!Auth::check() || !Auth::user()->is_admin) {
+            return redirect('/')->with('error', 'You do not have access to this page.');
+        }
+
+        $request->validate([
+            'firstname' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8',
+            'is_admin' => 'required|boolean',
+        ]);
+
+        User::create([
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'is_admin' => $request->is_admin,
+        ]);
+
+        return redirect()->back()->with('success', 'User created successfully.');
+    }
+
     public function updateUser(Request $request, User $user)
     {
         if (!Auth::check() || !Auth::user()->is_admin) {
@@ -39,7 +65,7 @@ class AdminController extends Controller
         $request->validate([
             'firstname' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
             'is_admin' => 'required|boolean',
         ]);
 

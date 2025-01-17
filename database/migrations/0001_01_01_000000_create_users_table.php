@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('delivery_address')->nullable();
             $table->string('billing_address')->nullable();
             $table->boolean('is_admin')->default(false);
+            $table->string('profile_image')->default('images/profile-round-1342-svgrepo-com.svg');
             $table->rememberToken();
             $table->timestamps();
         });

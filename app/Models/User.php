@@ -23,6 +23,8 @@ class User extends Authenticatable
         'phone',
         'delivery_address',
         'billing_address',
+        'is_admin',
+        'profile_image',
     ];
 
     /**
